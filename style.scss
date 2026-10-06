@@ -1,14 +1,6 @@
 ---
 ---
 
-//
-// IMPORTS
-//
-
-//@import "reset";
-//@import "variables";
-// Syntax highlighting @import is at the bottom of this file
-
 /**************/
 /* BASE RULES */
 /**************/
@@ -17,6 +9,7 @@
   --text: #000000;
   --link: #1772d0;
   --link-hover: #f09228;
+  --highlight: #ffffd0;
 }
 
 [data-theme="dark"] {
@@ -24,6 +17,7 @@
   --text: #e6e6e6;
   --link: #6ab0ff;
   --link-hover: #ffb35c;
+  --highlight: #3a3a1f;
 }
 
 body {
@@ -32,8 +26,16 @@ body {
   transition: background-color 0.2s, color 0.2s;
 }
 
-a { color: var(--link); }
-a:hover { color: var(--link-hover); }
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}
 
 /* toggle button */
 #theme-toggle {
@@ -47,16 +49,7 @@ a:hover { color: var(--link-hover); }
   padding: 6px 12px;
   cursor: pointer;
   font-size: 14px;
-}
-a {
-  color: #1772d0;
-  text-decoration: none;
-}
-
-a:focus,
-a:hover {
-  color: #f09228;
-  text-decoration: none;
+  z-index: 10;
 }
 
 body,
@@ -83,7 +76,7 @@ h2 {
   font-weight: normal;
   padding: 0px;
   margin: 0px;
-  display:inline; 
+  display: inline;
 }
 
 h3 {
@@ -93,7 +86,7 @@ h3 {
   font-display: auto;
   padding: 0px;
   margin: 0px;
-  display:inline; 
+  display: inline;
 }
 
 h1 {
@@ -107,7 +100,6 @@ h1 {
   margin-block-end: 14px;
   margin-left: 0px;
   margin-right: 0px;
-
 }
 
 .one {
@@ -132,10 +124,5 @@ h1 {
 }
 
 span.highlight {
-  background-color: #ffffd0;
+  background-color: var(--highlight);
 }
-
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-//@import "highlights";
-//@import "svg-icons";
