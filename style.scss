@@ -12,6 +12,42 @@
 /**************/
 /* BASE RULES */
 /**************/
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --link: #1772d0;
+  --link-hover: #f09228;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #e6e6e6;
+  --link: #6ab0ff;
+  --link-hover: #ffb35c;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+a { color: var(--link); }
+a:hover { color: var(--link-hover); }
+
+/* toggle button */
+#theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: 1px solid var(--text);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
 a {
   color: #1772d0;
   text-decoration: none;
