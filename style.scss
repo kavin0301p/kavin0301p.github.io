@@ -126,3 +126,104 @@ h1 {
 span.highlight {
   background-color: var(--highlight);
 }
+
+/* ===== Updates timeline ===== */
+.updates {
+  --tl-muted: #6b6b6b;
+  --tl-track: #e4e4e4;
+  --tl-rule: #e4e4e4;
+  --tl-btn: #cfcfcf;
+}
+[data-theme="dark"] .updates {
+  --tl-muted: #8a8580;
+  --tl-track: #2a2a2a;
+  --tl-rule: #2a2a2a;
+  --tl-btn: #3a3a3a;
+}
+
+.updates-head {
+  border-bottom: 1px solid var(--tl-rule);
+  padding-bottom: 16px;
+  margin-bottom: 36px;
+}
+.updates-title {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tl-track {
+  position: relative;
+  height: 24px;
+  margin: 0 12px;
+}
+.tl-track::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  right: -12px;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 2px;
+  background: var(--tl-track);
+}
+
+.tl-dot {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--c);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: width .15s, height .15s, box-shadow .15s;
+}
+.tl-dot:hover { width: 17px; height: 17px; }
+.tl-dot.active {
+  width: 16px;
+  height: 16px;
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--c);
+}
+
+.tl-years {
+  position: relative;
+  height: 22px;
+  margin: 6px 12px 0;
+}
+.tl-year {
+  position: absolute;
+  top: 0;
+  font-size: 12px;
+  color: var(--tl-muted);
+}
+
+.tl-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  min-height: 40px;
+}
+.tl-text { margin: 0; font-size: 16px; }
+.tl-text .tl-date { font-weight: 700; }
+.tl-text b { font-weight: 700; }
+
+.tl-nav { display: flex; gap: 10px; flex-shrink: 0; }
+.tl-nav button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--tl-btn);
+  background: none;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.tl-nav button:disabled { opacity: .3; cursor: default; }
