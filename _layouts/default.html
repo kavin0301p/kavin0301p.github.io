@@ -335,6 +335,90 @@
     </tr>
   </table>
 
+  <script>
+(function () {
+  // ---- EDIT YOUR UPDATES HERE (date = YYYY-MM) ----
+  // type: 'news' (grey-blue), 'paper' (yellow), 'milestone' (red)
+  var updates = [
+    { date: '2025-02', type: 'news',      text: 'Started my <b>PhD</b> at CMU.' },
+    { date: '2025-06', type: 'paper',     text: 'Paper accepted at <b>CVPR</b>.' },
+    { date: '2025-10', type: 'milestone', text: 'Passed my <b>qualifying exam</b>.' },
+    { date: '2026-04', type: 'news',      text: 'Gave a talk at <b>a workshop</b>.' },
+    { date: '2026-06', type: 'paper',     text: 'Posted a new paper on <b>arXiv</b>.' },
+    { date: '2026-07', type: 'news',      text: 'Started a <b>research internship</b>.' },
+    { date: '2026-07', type: 'milestone', text: 'Released the <b>code</b> for our latest project.' },
+    { date: '2026-08', type: 'milestone', text: 'Joined the <b>onboarding programme</b>.' }
+  ];
+  // -------------------------------------------------
+
+  var COLORS = { news: '#8fa3bd', paper: '#f6c453', milestone: '#f08a85' };
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  var track = document.getElementById('tl-track');
+  var years = document.getElementById('tl-years');
+  var text  = document.getElementById('tl-text');
+  var prev  = document.getElementById('tl-prev');
+  var next  = document.getElementById('tl-next');
+  if (!track || !updates.length) return;
+
+  function ts(s) {
+    var p = s.split('-');
+    return new Date(+p[0], +p[1] - 1, 15).getTime();
+  }
+
+  updates.sort(function (a, b) { return ts(a.date) - ts(b.date); });
+
+  var firstYear = +updates[0].date.split('-')[0];
+  var start = new Date(firstYear, 0, 1).getTime();
+  var end = ts(updates[updates.length - 1].date) + 30 * 86400000;
+
+  function pct(t) { return ((t - start) / (end - start)) * 100; }
+
+  // year labels
+  for (var y = firstYear; new Date(y, 0, 1).getTime() <= end; y++) {
+    var lab = document.createElement('span');
+    lab.className = 'tl-year';
+    lab.textContent = '\u2019' + String(y).slice(2);
+    lab.style.left = pct(new Date(y, 0, 1).getTime()) + '%';
+    years.appendChild(lab);
+  }
+
+  // dots
+  var dots = updates.map(function (u, i) {
+    var d = document.createElement('button');
+    var p = u.date.split('-');
+    d.className = 'tl-dot';
+    d.style.setProperty('--c', COLORS[u.type] || COLORS.news);
+    d.style.left = pct(ts(u.date)) + '%';
+    d.setAttribute('aria-label', MONTHS[+p[1] - 1] + ' ' + p[0]);
+    d.addEventListener('click', function () { select(i); });
+    track.appendChild(d);
+    return d;
+  });
+
+  var current = updates.length - 1;
+
+  function select(i) {
+    current = i;
+    var u = updates[i];
+    var p = u.date.split('-');
+    var c = COLORS[u.type] || COLORS.news;
+    dots.forEach(function (d, j) { d.classList.toggle('active', j === i); });
+    text.innerHTML =
+      '<span class="tl-date" style="color:' + c + '">' +
+      MONTHS[+p[1] - 1] + ' \u2019' + p[0].slice(2) +
+      '</span> \u2014 ' + u.text;
+    prev.disabled = i === 0;
+    next.disabled = i === updates.length - 1;
+  }
+
+  prev.addEventListener('click', function () { if (current > 0) select(current - 1); });
+  next.addEventListener('click', function () { if (current < updates.length - 1) select(current + 1); });
+
+  select(current);
+})();
+</script>
+
   <!-- Theme toggle -->
   <script>
     var btn = document.getElementById('theme-toggle');
