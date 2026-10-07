@@ -5,19 +5,19 @@
 /* BASE RULES */
 /**************/
 :root {
-  --bg: #ffffff;
-  --text: #000000;
-  --link: #1772d0;
-  --link-hover: #f09228;
-  --highlight: #ffffd0;
+  --bg: #f5ebdd;          /* very light brown */
+  --text: #3b2a1e;        /* deep brown */
+  --link: #9c4f1f;
+  --link-hover: #d17a2c;
+  --highlight: #ecd9b8;
 }
 
 [data-theme="dark"] {
-  --bg: #121212;
-  --text: #e6e6e6;
-  --link: #6ab0ff;
-  --link-hover: #ffb35c;
-  --highlight: #3a3a1f;
+  --bg: #2b1d14;          /* dark brown */
+  --text: #ecdcc8;
+  --link: #e3ad70;
+  --link-hover: #f5c98f;
+  --highlight: #4a3524;
 }
 
 body {
@@ -129,16 +129,16 @@ span.highlight {
 
 /* ===== Updates timeline ===== */
 .updates {
-  --tl-muted: #6b6b6b;
-  --tl-track: #e4e4e4;
-  --tl-rule: #e4e4e4;
-  --tl-btn: #cfcfcf;
+  --tl-muted: #8a7560;
+  --tl-track: #dccbb5;
+  --tl-rule: #dccbb5;
+  --tl-btn: #c4ae93;
 }
 [data-theme="dark"] .updates {
-  --tl-muted: #8a8580;
-  --tl-track: #2a2a2a;
-  --tl-rule: #2a2a2a;
-  --tl-btn: #3a3a3a;
+  --tl-muted: #a89580;
+  --tl-track: #4a3426;
+  --tl-rule: #4a3426;
+  --tl-btn: #6a4d3a;
 }
 
 .updates-head {
@@ -227,3 +227,11 @@ span.highlight {
   cursor: pointer;
 }
 .tl-nav button:disabled { opacity: .3; cursor: default; }
+
+/* project thumbnails with white backgrounds blend into the brown page */
+:root:not([data-theme="dark"]) td img[alt="project image"] {
+  mix-blend-mode: multiply;
+}
+[data-theme="dark"] td img[alt="project image"] {
+  border-radius: 6px;
+}
