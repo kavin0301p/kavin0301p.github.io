@@ -401,3 +401,24 @@ span.highlight {
 [data-theme="dark"] td img[alt="project image"] {
   border-radius: 6px;
 }
+
+/* name in the nav (left) */
+.topnav .brand {
+  margin-right: auto;                 /* pushes the other links to the right */
+  color: var(--text) !important;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;               /* keeps normal capitalization */
+}
+.topnav .brand:hover {
+  color: var(--link-hover) !important;
+}
+
+@media (max-width: 600px) {
+  .topnav .brand {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
+}
