@@ -59,10 +59,10 @@ html {
 }
 
 .topnav-inner {
+  height: 56px; 
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2.5%;
-  height: 56px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -102,7 +102,7 @@ html {
 }
 
 /* ===== Theme controls: sun/moon icon + cat ===== */
-.topnav-inner { height: 68px; }
+.topnav-inner { height: 60px; }
 
 .theme-wrap {
   display: flex;
@@ -126,12 +126,12 @@ html {
 .theme-btn:hover .pet { transform: scale(1.08); }
 
 /* cat (bigger) */
-.pet-btn { width: 72px; height: 61px; }
+.pet-btn { width: 58px; height: 49px; }
 
 /* sun / moon icon */
 .icon-btn {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   color: var(--nav-muted);
   transition: color .15s;
 }
