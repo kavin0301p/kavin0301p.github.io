@@ -5,19 +5,19 @@
 /* BASE RULES */
 /**************/
 :root {
-  --bg: #f5ebdd;          /* very light brown */
-  --text: #3b2a1e;        /* deep brown */
-  --link: #9c4f1f;
-  --link-hover: #d17a2c;
-  --highlight: #ecd9b8;
+  --bg: #f8f0e6;          /* light cream-brown (from your screenshot) */
+  --text: #3d3931;
+  --link: #a8402a;        /* reddish brown links */
+  --link-hover: #d4783a;
+  --highlight: #efdfc8;
 }
 
 [data-theme="dark"] {
-  --bg: #2b1d14;          /* dark brown */
-  --text: #ecdcc8;
-  --link: #e3ad70;
-  --link-hover: #f5c98f;
-  --highlight: #4a3524;
+  --bg: #171614;          /* dark warm brown-black (from your screenshot) */
+  --text: #cfc9bd;
+  --link: #e6a05c;        /* orange links */
+  --link-hover: #f5c48c;
+  --highlight: #3a3226;
 }
 
 body {
@@ -129,16 +129,16 @@ span.highlight {
 
 /* ===== Updates timeline ===== */
 .updates {
-  --tl-muted: #8a7560;
-  --tl-track: #dccbb5;
-  --tl-rule: #dccbb5;
-  --tl-btn: #c4ae93;
+  --tl-muted: #8a7f70;
+  --tl-track: #e6d9c6;
+  --tl-rule: #e6d9c6;
+  --tl-btn: #cdbba3;
 }
 [data-theme="dark"] .updates {
-  --tl-muted: #a89580;
-  --tl-track: #4a3426;
-  --tl-rule: #4a3426;
-  --tl-btn: #6a4d3a;
+  --tl-muted: #8a847a;
+  --tl-track: #2a2723;
+  --tl-rule: #2a2723;
+  --tl-btn: #3d3934;
 }
 
 .updates-head {
@@ -230,7 +230,7 @@ span.highlight {
 
 /* project thumbnails with white backgrounds blend into the brown page */
 :root:not([data-theme="dark"]) td img[alt="project image"] {
-  mix-blend-mode: multiply;
+  mix-blend-mode: multiply;   /* white image backgrounds blend into the cream */
 }
 [data-theme="dark"] td img[alt="project image"] {
   border-radius: 6px;
