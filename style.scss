@@ -101,23 +101,58 @@ html {
   --pet-m: #231f2c;
 }
 
-#theme-toggle {
+/* ===== Theme controls: sun/moon icon + cat ===== */
+.topnav-inner { height: 68px; }
+
+.theme-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+}
+
+.theme-btn {
   background: none;
   border: none;
   outline: none;
   box-shadow: none;
   padding: 0;
-  margin-left: 6px;
-  width: 50px;
-  height: 42px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   -webkit-tap-highlight-color: transparent;
 }
-#theme-toggle:hover .pet { transform: scale(1.08); }
+.theme-btn:hover .pet { transform: scale(1.08); }
 
+/* cat (bigger) */
+.pet-btn { width: 72px; height: 61px; }
+
+/* sun / moon icon */
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  color: var(--nav-muted);
+  transition: color .15s;
+}
+.icon-btn:hover { color: var(--link-hover); }
+.icon-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .4s;
+}
+.icon-btn:hover svg { transform: rotate(25deg); }
+
+/* moon in light theme, sun in dark theme */
+.icon-btn .sun  { display: none; }
+.icon-btn .moon { display: block; }
+[data-theme="dark"] .icon-btn .sun  { display: block; }
+[data-theme="dark"] .icon-btn .moon { display: none; }
 .pet {
   width: 100%;
   height: 100%;
