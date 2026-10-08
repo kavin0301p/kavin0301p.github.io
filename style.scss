@@ -82,29 +82,46 @@ html {
   color: var(--link-hover);
 }
 
+/* ===== Theme toggle: boy with / without sunglasses ===== */
 #theme-toggle {
   background: none;
-  border: 1px solid var(--nav-rule);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 4px 10px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  margin-left: 6px;
+  width: 38px;
+  height: 38px;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 1.2;
-  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .15s;
 }
+#theme-toggle:hover { transform: scale(1.1); }
+#theme-toggle:focus:not(:focus-visible) { outline: none; }
 
-@media (max-width: 600px) {
-  .topnav-inner {
-    gap: 14px;
-    height: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .topnav a { font-size: 12px; }
+.boy { width: 100%; height: 100%; overflow: visible; }
+
+.boy .skin  { fill: #f2c298; }
+.boy .hair  { fill: #4a2e1a; }
+.boy .eye   { fill: #3b2a1e; }
+.boy .smile { fill: none; stroke: #7a3f2a; stroke-width: 1.4; stroke-linecap: round; }
+.boy .lens  { fill: #15110e; }
+.boy .frame { stroke: #15110e; stroke-width: 1.4; stroke-linecap: round; }
+.boy .glint { stroke: #fff; stroke-width: 1; stroke-linecap: round; opacity: .55; }
+
+/* sunglasses on in LIGHT theme, off in DARK theme */
+.boy .glasses,
+.boy .eyes {
+  transition: opacity .25s, transform .25s;
 }
+.boy .glasses { opacity: 1; transform: translateY(0); }
+.boy .eyes    { opacity: 0; }
+
+[data-theme="dark"] .boy .glasses { opacity: 0; transform: translateY(-6px); }
+[data-theme="dark"] .boy .eyes    { opacity: 1; }
 
 body,
 td,
