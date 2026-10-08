@@ -567,12 +567,17 @@
     b.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      //localStorage.setItem('theme', next);
       updateLabel();
     });
   });
 
   updateLabel();
+</script>
+<script>
+  (function () {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  })();
 </script>
 </body>
 
