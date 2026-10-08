@@ -422,3 +422,34 @@ span.highlight {
     margin-right: 0;
   }
 }
+
+/* ===== Nav: name on the far left, links on the right ===== */
+.topnav .topnav-inner {
+  max-width: none;          /* use the full screen width */
+  padding: 0 28px;
+}
+
+.topnav a.brand {
+  margin-right: auto;       /* pushes everything else to the right */
+  color: var(--text) !important;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none !important;
+}
+.topnav a.brand:hover {
+  color: var(--link-hover) !important;
+}
+
+/* muted menu links (overrides the blue from the inline style) */
+.topnav a:not(.brand) { color: var(--nav-muted) !important; }
+.topnav a:not(.brand):hover { color: var(--link-hover) !important; }
+
+@media (max-width: 600px) {
+  .topnav .topnav-inner { padding: 10px 14px; }
+  .topnav a.brand {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
+}
