@@ -453,3 +453,157 @@ span.highlight {
     margin-right: 0;
   }
 }
+
+/* ===== Research Experience (timeline cards) ===== */
+:root {
+  --card-bg: #fffaf3;
+  --card-border: #ead9c0;
+  --accent: #a8402a;
+  --exp-muted: #8a7a68;
+  --exp-line: #e6d6bf;
+}
+[data-theme="dark"] {
+  --card-bg: #211f1c;
+  --card-border: #302d29;
+  --accent: #e6a05c;
+  --exp-muted: #8f887d;
+  --exp-line: #302d29;
+}
+
+.exp {
+  position: relative;
+  margin-top: 22px;
+  padding-left: 30px;
+}
+.exp::before {                       /* vertical timeline line */
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 14px;
+  bottom: 0;
+  width: 2px;
+  background: var(--exp-line);
+}
+
+.exp-item {
+  position: relative;
+  margin-bottom: 22px;
+}
+.exp-dot {                           /* ring marker on the line */
+  position: absolute;
+  left: -30px;
+  top: 22px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: var(--bg);
+}
+
+.exp-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 10px rgba(60, 40, 20, .06);
+  transition: transform .15s, box-shadow .15s;
+}
+.exp-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(60, 40, 20, .1);
+}
+
+/* logo box on the left */
+.exp-logo {
+  position: relative;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.exp-logo span {                     /* initials shown if the logo file is missing */
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.exp-logo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 7px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.exp-body { flex: 1; min-width: 0; }
+
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.exp-org {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.exp-date {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  color: var(--exp-muted);
+  white-space: nowrap;
+}
+.exp-role {
+  margin-top: 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+.exp-meta {
+  margin-top: 4px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--exp-muted);
+}
+
+.exp-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+.exp-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.exp-list li::before {               /* chevron bullet */
+  content: "\203A";
+  position: absolute;
+  left: 2px;
+  top: -1px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .exp { padding-left: 24px; }
+  .exp-dot { left: -24px; }
+  .exp-card { padding: 16px; gap: 12px; }
+  .exp-logo { flex-basis: 44px; width: 44px; height: 44px; }
+  .exp-date { white-space: normal; }
+}
